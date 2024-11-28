@@ -5,12 +5,18 @@ function addTodo() {
     // console.log(todo.value)
     list.innerHTML +=` <li>
     <input type = 'text' value ='${todo.value}' disabled /> 
-    <button onclick = 'editTodo(event)'> Edit Todo </button> 
-    <button onclick = 'deleteTodo(event)'> Delete </button>
+    <button onclick = 'editTodo(event)' type="button" class=" btn btn-outline-info"> Edit Todo</button> 
+    <button onclick = 'deleteTodo(event)' type="button" class="btn btn-outline-dark">Delete Todo </button>
      </li>`;
-    todo.value = "";
+     todo.value = "";
+     for (let i = 0; i < todo.value.length; i++) {
+        localStorage.setItem("todoItems", JSON.stringify(todo.value[i]))
+        
+        
+    }
     if (todo.value == " ") {
         alert("Fill The Inputs");
+        return;
     }
 }
 function addTodoByEnter(e) {
