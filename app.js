@@ -8,6 +8,7 @@ function addTodo() {
         alert("Fill The Inputs");
         return;
     } else {
+        // <img id = "img" onclick = "imgChange()" src="./img/download.png" alt=""></img>
         list.innerHTML += ` <li>
         <input type = 'text' id = "inputValue" value ='${todo.value}' disabled /> 
         <button onclick = 'editTodo(event)' type="button" class=" btn btn-outline-info"> Edit Todo</button> 
@@ -33,6 +34,7 @@ function deleteTodo(e) {
 /// to edit todo tasks
 function editTodo(e) {
     var input = e.target.parentNode.childNodes[1];
+    console.log(input)
     input.disabled = false;
     input.focus();
     e.target.innerHTML = "Updated";
@@ -72,4 +74,8 @@ function showTask() {
 }
 showTask();
 
-
+function imgChange() {
+    if (document.getElementById("img").src = "./img/download.png") {
+        document.getElementById("img").src = "./img/check.webp";
+    }
+}
